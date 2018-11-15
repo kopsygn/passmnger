@@ -1,13 +1,15 @@
+#!/usr/bin/python
+# coding: UTF-8
 
-#################################使い方################################################
+#####################################使い方############################################
 usage = "pswdmngrにオプションの引数は不要です。その代わり名前で機能を指定します\n"
-usage = "\n"
+usage+= "\n"
 usage+= "pswdmngr.get     パスワードをクリップボードにコピーします。\n"
 usage+= "pswdmngr.add     管理するアカウントを追加する\n"
 usage+= "pswdmngr.del     アカウントを削除する\n"
 usage+= "pswdmngr.list    アカウント一覧を表示する。\n"
-usage+= "pawdmngr.cmps     マスターパスワードの変更する\n"
-usage+= "pawdmngr.help    ヘルプ表示\n"
+usage+= "pawdmngr.cmps    マスターパスワードの変更する\n"
+usage+= "pawdmngr.help    ヘルプ表示"
 #######################################################################################
 
 
@@ -72,7 +74,10 @@ def outputdata(password):
     
 #メインストリーム シンボリックリンクを使用して実行コマンド名で機能を判断して実行#
 #パスワード出力メイン機能
-if sys.argv[0] == "pswdmngr.get":
+
+
+linkname = sys.argv[0].split("/")[-1]
+if linkname == "pswdmngr.get":
     certification(getpass.getpass("plz password > "))
     
     accountlist = loaddata()
@@ -90,18 +95,18 @@ if sys.argv[0] == "pswdmngr.get":
         print("sorry;_; '" +  account + "' is Not Found")
 
 #管理アカウントの追加
-elif sys.argv[0] == "pswdmngr.add":
-
+elif linkname == "pswdmngr.add":
+    print "test"
 #管理アカウントの削除
-elif sys.argv[0] == "pswdmngr.del":
-
+elif linkname == "pswdmngr.del":
+    print "test"
 #管理しているアカウントをリスト表示
-elif sys.argv[0] == "pswdmngr.list":
-
+elif linkname == "pswdmngr.list":
+    print "test"
 #マスターパスワードの変更
-elif sys.argv[0] == "pswdmngt.cmps":
-
-#ヘルプ・使い方表示
+elif linkname == "pswdmngt.cmps":
+    print "test"
+#ヘルプ・使い方表示 .helpもここでキャッチする。
 else:
     print usage
     
